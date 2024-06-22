@@ -37,5 +37,10 @@
 		"effect": "^3.4.0",
 		"effect-http": "^0.71.0",
 		"effect-http-node": "^0.15.1"
+	},
+	"overrides": {
+		"svelte-hmr": {
+			"svelte": "$svelte"
+		}
 	}
 }
