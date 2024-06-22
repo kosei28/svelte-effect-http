@@ -12,12 +12,10 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"@effect/platform": "^0.58.2",
-		"@effect/platform-node": "^0.53.1",
+		"@effect/platform": "^0.58.3",
 		"@effect/schema": "^0.68.5",
 		"effect": "^3.4.0",
-		"effect-http": "^0.71.0",
-		"effect-http-node": "^0.15.1"
+		"effect-http": "^0.71.0"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-cloudflare": "^4.5.0",
