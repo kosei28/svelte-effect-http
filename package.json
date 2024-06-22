@@ -11,8 +11,16 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write ."
 	},
+	"dependencies": {
+		"@effect/platform": "^0.58.2",
+		"@effect/platform-node": "^0.53.1",
+		"@effect/schema": "^0.68.5",
+		"effect": "^3.4.0",
+		"effect-http": "^0.71.0",
+		"effect-http-node": "^0.15.1"
+	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/adapter-cloudflare": "^4.5.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/eslint": "^8.56.7",
@@ -30,14 +38,6 @@
 		"vite": "^5.0.3"
 	},
 	"type": "module",
-	"dependencies": {
-		"@effect/platform": "^0.58.2",
-		"@effect/platform-node": "^0.53.1",
-		"@effect/schema": "^0.68.5",
-		"effect": "^3.4.0",
-		"effect-http": "^0.71.0",
-		"effect-http-node": "^0.15.1"
-	},
 	"overrides": {
 		"svelte-hmr": {
 			"svelte": "$svelte"
