@@ -14,9 +14,7 @@ const SWAGGER_FILE_NAMES = [
 
 const readSwaggerFile = (file: string) =>
 	Effect.promise(async () => {
-		const res = await fetch(
-			`https://raw.githubusercontent.com/swagger-api/swagger-ui/v5.17.14/dist/${file}`
-		);
+		const res = await fetch(`https://unpkg.com/swagger-ui-dist@5.17/${file}`);
 		return await res.text();
 	});
 
