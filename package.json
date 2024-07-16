@@ -35,10 +35,5 @@
 		"typescript-eslint": "^8.0.0-alpha.20",
 		"vite": "^5.3.3"
 	},
-	"type": "module",
-	"overrides": {
-		"svelte-hmr": {
-			"svelte": "$svelte"
-		}
-	}
+	"type": "module"
 }
