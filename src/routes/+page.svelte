@@ -7,13 +7,27 @@
 
 	let name = $state('');
 	let result = $state<{ ok: boolean; message: string }>();
+	let currentDate = $state<Date>();
 
 	async function getMessage() {
 		result = await Effect.runPromise(
 			client.getHello({ query: { name } }).pipe(
-				Effect.matchEffect({
-					onSuccess: (a) => Effect.succeed({ ok: true, message: a.message }),
-					onFailure: (e) => Effect.succeed({ ok: false, message: e.message })
+				Effect.match({
+					onSuccess: (v) => ({ ok: true, message: v.message }),
+					onFailure: (e) => ({ ok: false, message: e.message })
+				})
+			)
+		);
+	}
+
+	async function getCurrentDate() {
+		await Effect.runPromise(
+			client.getCurrentDate({}).pipe(
+				Effect.match({
+					onSuccess: (v) => {
+						currentDate = v.date;
+					},
+					onFailure: () => {}
 				})
 			)
 		);
@@ -22,7 +36,9 @@
 
 <h1>Svelte 5 + effect-http</h1>
 
-<h2>Request</h2>
+<h2>/api/hello</h2>
+
+<h3>Request</h3>
 
 <label>
 	<div>Name</div>
@@ -31,7 +47,7 @@
 
 <button type="button" onclick={getMessage}>Submit</button>
 
-<h2>Response</h2>
+<h3>Response</h3>
 
 {#if result !== undefined}
 	{#if result.ok}
@@ -41,4 +57,16 @@
 	{/if}
 
 	<pre>{result.message}</pre>
+{/if}
+
+<h2>/api/date</h2>
+
+<h3>Request</h3>
+
+<button type="button" onclick={getCurrentDate}>Get current date</button>
+
+<h3>Response</h3>
+
+{#if currentDate !== undefined}
+	<p>{currentDate.toString()}</p>
 {/if}
