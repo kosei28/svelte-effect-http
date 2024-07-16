@@ -1,7 +1,7 @@
+import { HttpApp } from '@effect/platform';
+import { Effect } from 'effect';
 import { Handler, RouterBuilder } from 'effect-http';
 import { api, getCurrentDateEndpoint, getHelloEndpoint } from './api';
-import { Effect } from 'effect';
-import { HttpApp } from '@effect/platform';
 import { SwaggerFilesLive } from './swagger-files';
 
 const getHelloHandler = Handler.make(getHelloEndpoint, ({ query }) =>
