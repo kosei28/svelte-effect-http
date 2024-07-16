@@ -12,28 +12,28 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"@effect/platform": "^0.58.3",
-		"@effect/schema": "^0.68.5",
-		"effect": "^3.4.0",
-		"effect-http": "^0.71.0"
+		"@effect/platform": "^0.58.27",
+		"@effect/schema": "^0.68.24",
+		"effect": "^3.5.4",
+		"effect-http": "^0.73.0"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-cloudflare": "^4.5.0",
-		"@sveltejs/kit": "^2.0.0",
-		"@sveltejs/vite-plugin-svelte": "^3.0.0",
-		"@types/eslint": "^8.56.7",
-		"eslint": "^9.0.0",
+		"@sveltejs/adapter-cloudflare": "^4.6.1",
+		"@sveltejs/kit": "^2.5.18",
+		"@sveltejs/vite-plugin-svelte": "^3.1.1",
+		"@types/eslint": "^8.56.10",
+		"eslint": "^9.7.0",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-svelte": "^2.36.0",
-		"globals": "^15.0.0",
-		"prettier": "^3.1.1",
-		"prettier-plugin-svelte": "^3.1.2",
+		"eslint-plugin-svelte": "^2.42.0",
+		"globals": "^15.8.0",
+		"prettier": "^3.3.3",
+		"prettier-plugin-svelte": "^3.2.5",
 		"svelte": "^5.0.0-next.1",
-		"svelte-check": "^3.6.0",
-		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
+		"svelte-check": "^3.8.4",
+		"tslib": "^2.6.3",
+		"typescript": "^5.5.3",
 		"typescript-eslint": "^8.0.0-alpha.20",
-		"vite": "^5.0.3"
+		"vite": "^5.3.3"
 	},
 	"type": "module",
 	"overrides": {

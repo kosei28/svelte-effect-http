@@ -12,21 +12,20 @@ const SWAGGER_FILE_NAMES = [
 	'favicon-16x16.png'
 ];
 
-const readSwaggerFile = (file: string) =>
+const loadSwaggerFile = (file: string) =>
 	Effect.promise(async () => {
 		const res = await fetch(`https://unpkg.com/swagger-ui-dist@5.17/${file}`);
-		return await res.text();
+		return new Uint8Array(await res.arrayBuffer());
 	});
 
 export const SwaggerFilesLive = Effect.gen(function* (_) {
 	const files = yield* _(
 		SWAGGER_FILE_NAMES,
-		Effect.forEach((path) => Effect.zip(Effect.succeed(path), readSwaggerFile(path))),
+		Effect.forEach((path) => Effect.zip(Effect.succeed(path), loadSwaggerFile(path))),
 		Effect.map(Record.fromEntries)
 	);
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const size = Object.entries(files).reduce((acc, [_, content]) => acc + content.length, 0);
+	const size = Object.values(files).reduce((acc, content) => acc + content.byteLength, 0);
 	const sizeMb = (size / 1024 / 1024).toFixed(1);
 
 	yield* _(Effect.logDebug(`Static swagger UI files loaded (${sizeMb}MB)`));
