@@ -21,13 +21,11 @@
 	}
 
 	async function getCurrentDate() {
-		await Effect.runPromise(
+		currentDate = await Effect.runPromise(
 			client.getCurrentDate({}).pipe(
 				Effect.match({
-					onSuccess: (v) => {
-						currentDate = v.date;
-					},
-					onFailure: () => {}
+					onSuccess: (v) => v.date,
+					onFailure: () => undefined
 				})
 			)
 		);
